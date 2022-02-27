@@ -17,6 +17,7 @@ import com.roshan.settingspractice.R
 import com.roshan.settingspractice.SettingsViewModel
 import com.roshan.settingspractice.model.MarketingOption
 import com.roshan.settingspractice.model.SettingsState
+import com.roshan.settingspractice.model.Theme
 
 @Composable
 fun Settings() {
@@ -29,6 +30,7 @@ fun Settings() {
             toggleNotificationSetting = settingsViewModel::toggleNotificationSettings,
             toggleHintsSetting = settingsViewModel::toggleHintSetting,
             optionSelected = settingsViewModel::setMarketingSettings,
+            onThemeSelected = settingsViewModel::setTheme
         )
 
     }
@@ -41,7 +43,8 @@ fun SettingsList(
     state: SettingsState,
     toggleNotificationSetting: () -> Unit,
     toggleHintsSetting: () -> Unit,
-    optionSelected: (option: MarketingOption) -> Unit
+    optionSelected: (option: MarketingOption) -> Unit,
+    onThemeSelected: (theme: Theme) -> Unit
 ) {
     Column(
         modifier = modifier.verticalScroll(
@@ -86,11 +89,8 @@ fun SettingsList(
         Divider()
         ManageSubscriptionSettingItem(modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.subscription_settings),
-
             onSettingClicked = {
-                {
 
-                }
             }
         )
         SectionSpacer(modifier = Modifier.fillMaxWidth())
@@ -100,6 +100,20 @@ fun SettingsList(
             onOptionSelected = optionSelected
 
         )
+
+        Divider()
+        ThemeSettingItem(
+            modifier = Modifier.fillMaxWidth(),
+            selectedTheme = state.themeOption,
+            onThemeSelected = onThemeSelected
+        )
+        SectionSpacer(modifier = Modifier.fillMaxWidth())
+
+        AppVersionSettingItem(
+            Modifier.fillMaxWidth(),
+            appVersion = stringResource(id = R.string.app_version)
+        )
+        Divider()
 
 
     }
