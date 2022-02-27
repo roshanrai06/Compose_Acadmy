@@ -1,8 +1,6 @@
 package com.roshan.settingspractice.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -17,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.roshan.settingspractice.R
 import com.roshan.settingspractice.SettingsViewModel
+import com.roshan.settingspractice.model.MarketingOption
 import com.roshan.settingspractice.model.SettingsState
 
 @Composable
@@ -28,7 +27,8 @@ fun Settings() {
             modifier = Modifier.fillMaxSize(),
             state = state,
             toggleNotificationSetting = settingsViewModel::toggleNotificationSettings,
-            toggleHintsSetting = settingsViewModel::toggleHintSetting
+            toggleHintsSetting = settingsViewModel::toggleHintSetting,
+            optionSelected = settingsViewModel::setMarketingSettings,
         )
 
     }
@@ -40,7 +40,8 @@ fun SettingsList(
     modifier: Modifier = Modifier,
     state: SettingsState,
     toggleNotificationSetting: () -> Unit,
-    toggleHintsSetting: () -> Unit
+    toggleHintsSetting: () -> Unit,
+    optionSelected: (option: MarketingOption) -> Unit
 ) {
     Column(
         modifier = modifier.verticalScroll(
@@ -93,6 +94,12 @@ fun SettingsList(
             }
         )
         SectionSpacer(modifier = Modifier.fillMaxWidth())
+        MarketingSettingItem(
+            modifier = Modifier.fillMaxWidth(),
+            selectedOption = state.marketingOption,
+            onOptionSelected = optionSelected
+
+        )
 
 
     }
