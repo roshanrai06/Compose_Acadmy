@@ -1,6 +1,5 @@
 package com.roshan.settingspractice.ui
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.MaterialTheme
@@ -9,12 +8,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.roshan.settingspractice.R
+import com.roshan.settingspractice.Tags.TAG_MARKETING_OPTION
 import com.roshan.settingspractice.model.MarketingOption
 
 @Composable
@@ -32,6 +33,7 @@ fun MarketingSettingItem(
             options.forEachIndexed { index, option ->
                 Row(
                     modifier = Modifier
+                        .testTag(TAG_MARKETING_OPTION + index)
                         .fillMaxWidth()
                         .selectable(
                             selectedOption.id == index, onClick = {

@@ -29,7 +29,7 @@ fun Settings() {
             state = state,
             toggleNotificationSetting = settingsViewModel::toggleNotificationSettings,
             toggleHintsSetting = settingsViewModel::toggleHintSetting,
-            optionSelected = settingsViewModel::setMarketingSettings,
+            setMarketingOption = settingsViewModel::setMarketingSettings,
             onThemeSelected = settingsViewModel::setTheme
         )
 
@@ -43,13 +43,11 @@ fun SettingsList(
     state: SettingsState,
     toggleNotificationSetting: () -> Unit,
     toggleHintsSetting: () -> Unit,
-    optionSelected: (option: MarketingOption) -> Unit,
+    setMarketingOption: (option: MarketingOption) -> Unit,
     onThemeSelected: (theme: Theme) -> Unit
 ) {
     Column(
-        modifier = modifier.verticalScroll(
-            rememberScrollState()
-        )
+        modifier = modifier.verticalScroll(rememberScrollState())
     ) {
         TopAppBar(
             backgroundColor = MaterialTheme.colors.surface,
@@ -60,24 +58,21 @@ fun SettingsList(
                 tint = MaterialTheme.colors.onSurface,
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = stringResource(
-                    id = R.string.cd_go_back
+                    id = R.string.cd_exit_settings
                 )
             )
             Spacer(modifier = Modifier.width(16.dp))
             Text(
-                text = stringResource(id = R.string.title_settings),
                 color = MaterialTheme.colors.onSurface,
-                fontSize = 18.sp
+                fontSize = 18.sp,
+                text = stringResource(id = R.string.title_settings)
             )
         }
-
-        Divider()
-
         NotificationSettings(
             modifier = Modifier.fillMaxWidth(),
-            title = stringResource(id = R.string.setting_enable_notifications), checked =
-            state.notificationsEnabled,
-            onToggleNotificationsSettings = toggleNotificationSetting
+            title = stringResource(id = R.string.setting_enable_notifications),
+            checked = state.notificationsEnabled,
+            onCheckedChanged = { toggleNotificationSetting() }
         )
         Divider()
         HintSettingsItem(
@@ -97,7 +92,7 @@ fun SettingsList(
         MarketingSettingItem(
             modifier = Modifier.fillMaxWidth(),
             selectedOption = state.marketingOption,
-            onOptionSelected = optionSelected
+            onOptionSelected = setMarketingOption
 
         )
 
@@ -113,7 +108,6 @@ fun SettingsList(
             Modifier.fillMaxWidth(),
             appVersion = stringResource(id = R.string.app_version)
         )
-        Divider()
 
 
     }
