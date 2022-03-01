@@ -50,17 +50,18 @@ class AuthenticationViewModel : ViewModel() {
     }
 
     private fun updatePassword(newPassword: String) {
-        val requirements = mutableListOf<PasswordRequirements>()
+        val satisfiedRequirements = mutableListOf<PasswordRequirements>()
         if (newPassword.length > 7) {
-            requirements.add(PasswordRequirements.EIGHT_CHARACTERS)
+            satisfiedRequirements.add(PasswordRequirements.EIGHT_CHARACTERS)
         }
         if (newPassword.any { it.isUpperCase() }) {
-            requirements.add(PasswordRequirements.CAPITAL_LETTER)
+            satisfiedRequirements.add(PasswordRequirements.CAPITAL_LETTER)
         }
         if (newPassword.any { it.isDigit() }) {
-            requirements.add(PasswordRequirements.NUMBER)
+            satisfiedRequirements.add(PasswordRequirements.NUMBER)
         }
-        uiState.value = uiState.value.copy(password = newPassword)
+        uiState.value =
+            uiState.value.copy(password = newPassword, satisfiedPasswordRequirements = satisfiedRequirements.toList())
     }
 
     private fun authenticate() {

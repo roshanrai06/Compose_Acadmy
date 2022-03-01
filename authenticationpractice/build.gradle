@@ -54,9 +54,22 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1'
+    // foundational classes from the Compose APIs
+    implementation "androidx.compose.foundation:foundation:$compose_version"
+    // UI components from the Compose APIs
+    implementation "androidx.compose.ui:ui:$compose_version"
+    // Material Design components from the Compose APIs
+    implementation "androidx.compose.material:material:$compose_version"
+    // Provides an extended collection of Material Iconography
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    // Tooling functionality for Composable, such as previews
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    // Tooling functionality for Composable, such as previews
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
 }
