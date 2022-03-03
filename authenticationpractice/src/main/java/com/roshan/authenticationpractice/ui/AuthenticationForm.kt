@@ -22,6 +22,7 @@ fun AuthenticationForm(
     email: String?,
     password: String?,
     satisfiedRequirements: List<PasswordRequirements>,
+    enableAuthentication: Boolean,
     onEmailChanged: (email: String) -> Unit,
     onPasswordChanged: (password: String) -> Unit,
     onAuthenticate: () -> Unit
@@ -71,6 +72,13 @@ fun AuthenticationForm(
                     PasswordRequirements(satisfiedRequirements = satisfiedRequirements)
 
                 }
+                Spacer(modifier = Modifier.height(12.dp))
+                AuthenticationButton(
+                    authenticationMode = authenticationMode,
+                    enableAuthentication = enableAuthentication,
+                    onAuthenticate = onAuthenticate
+                )
+
 
             }
         }
@@ -89,7 +97,7 @@ fun Preview_AuthenticationForm() {
             email = "contact@compose.academy",
             password = "12345678",
             satisfiedRequirements = listOf(PasswordRequirements.CAPITAL_LETTER),
-//            enableAuthentication = true,
+            enableAuthentication = true,
             onEmailChanged = { },
             onPasswordChanged = { },
             onAuthenticate = { },

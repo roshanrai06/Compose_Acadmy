@@ -30,6 +30,7 @@ fun AuthenticationContent(
                 email = authenticationState.email,
                 password = authenticationState.password,
                 satisfiedRequirements = authenticationState.satisfiedPasswordRequirements,
+                enableAuthentication = authenticationState.isFormValid(),
                 onEmailChanged = { email ->
                     handleEvent(AuthenticationEvent.EmailChanged(email))
                 },
