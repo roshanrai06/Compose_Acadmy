@@ -39,6 +39,9 @@ fun AuthenticationContent(
                 },
                 onAuthenticate = {
                     AuthenticationEvent.Authenticate
+                },
+                onToggleMode = {
+                    handleEvent(AuthenticationEvent.ToggleAuthenticationMode)
                 }
             )
         }

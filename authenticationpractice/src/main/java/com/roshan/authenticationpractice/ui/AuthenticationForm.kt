@@ -1,6 +1,7 @@
 package com.roshan.authenticationpractice.ui
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -25,7 +26,8 @@ fun AuthenticationForm(
     enableAuthentication: Boolean,
     onEmailChanged: (email: String) -> Unit,
     onPasswordChanged: (password: String) -> Unit,
-    onAuthenticate: () -> Unit
+    onAuthenticate: () -> Unit,
+    onToggleMode: () -> Unit
 ) {
 
     Column(
@@ -78,10 +80,16 @@ fun AuthenticationForm(
                     enableAuthentication = enableAuthentication,
                     onAuthenticate = onAuthenticate
                 )
-
-
             }
         }
+        Spacer(modifier = Modifier.weight(1f))
+        ToggleAuthenticationMode(
+            modifier = Modifier.fillMaxWidth(),
+            authenticationMode = authenticationMode,
+            toggleAuthentication = {
+                onToggleMode()
+            }
+        )
 
     }
 
@@ -101,7 +109,7 @@ fun Preview_AuthenticationForm() {
             onEmailChanged = { },
             onPasswordChanged = { },
             onAuthenticate = { },
-//            onToggleMode = { }
+            onToggleMode = { }
         )
     }
 }
