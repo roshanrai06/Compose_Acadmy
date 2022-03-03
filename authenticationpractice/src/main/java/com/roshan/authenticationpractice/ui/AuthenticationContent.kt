@@ -24,12 +24,21 @@ fun AuthenticationContent(
             CircularProgressIndicator()
 
         } else {
-            AuthenticationForm(modifier = Modifier.fillMaxWidth(),
+            AuthenticationForm(
+                modifier = Modifier.fillMaxWidth(),
                 authenticationMode = authenticationState.authenticationMode,
                 email = authenticationState.email,
+                password = authenticationState.password,
                 onEmailChanged = { email ->
                     handleEvent(AuthenticationEvent.EmailChanged(email))
-                })
+                },
+                onPasswordChanged = {
+                    handleEvent(AuthenticationEvent.PasswordChanged(it))
+                },
+                onAuthenticate = {
+                    AuthenticationEvent.Authenticate
+                }
+            )
         }
 
     }
