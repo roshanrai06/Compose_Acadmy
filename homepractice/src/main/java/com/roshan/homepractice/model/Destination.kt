@@ -8,7 +8,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Destination(
     val path: String,
-    val icon: ImageVector? = null
+    val icon: ImageVector? = null,
+    val isRootDestination: Boolean = true
 ) {
     object Home : Destination("home")
     object Feed : Destination("feed", Icons.Default.List)
@@ -17,5 +18,16 @@ sealed class Destination(
 
     val title = path.replaceFirstChar {
         it.uppercase()
+    }
+
+    companion object {
+        fun fromString(route: String): Destination {
+            return when (route) {
+                Feed.path -> Feed
+                Calender.path -> Calender
+                Contacts.path -> Contacts
+                else -> Home
+            }
+        }
     }
 }
