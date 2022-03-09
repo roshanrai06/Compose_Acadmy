@@ -9,15 +9,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+
 import com.roshan.homepractice.R
 
 @Composable
 fun Home(modifier: Modifier = Modifier, orientation: Int) {
     val scaffoldState = rememberScaffoldState()
+    val navController = rememberNavController()
     Scaffold(modifier = modifier, topBar = {
         TopAppBar(title = {
             Text(text = "Home")
         })
+        Navigation(
+            modifier = modifier,
+            navController = navController
+        )
     }, floatingActionButton = {
         FloatingActionButton(onClick =
         {

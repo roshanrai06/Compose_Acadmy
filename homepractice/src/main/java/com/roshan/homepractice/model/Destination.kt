@@ -13,6 +13,7 @@ sealed class Destination(
     object Home : Destination("home")
     object Feed : Destination("feed", Icons.Default.List)
     object Contacts : Destination("contacts", Icons.Default.Person)
+    object Calender : Destination("calendar", Icons.Default.DateRange)
 
     val title = path.replaceFirstChar {
         it.uppercase()
