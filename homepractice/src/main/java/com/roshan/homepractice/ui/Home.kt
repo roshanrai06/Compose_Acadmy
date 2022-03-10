@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 
 import com.roshan.homepractice.R
 import com.roshan.homepractice.model.Destination
+import kotlinx.coroutines.launch
 
 @Composable
 fun Home(modifier: Modifier = Modifier, orientation: Int) {
@@ -30,11 +32,31 @@ fun Home(modifier: Modifier = Modifier, orientation: Int) {
             } ?: run { Destination.Home }
         }
     }
+    val coroutineScope = rememberCoroutineScope()
+
+    val snackbarMessage = stringResource(id = R.string.not_available_yet)
     Scaffold(
         modifier = modifier,
         topBar = {
             TopAppBar(title = {
                 Text(text = "Home")
+            }, actions = {
+                if (currentDestination != Destination.Feed) {
+                    IconButton(onClick = {
+                        coroutineScope.launch {
+                            scaffoldState.snackbarHostState.showSnackbar(message = snackbarMessage)
+                        }
+
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            contentDescription = stringResource(
+                                id = R.string.cd_more_info
+                            )
+                        )
+
+                    }
+                }
             })
 
         },
