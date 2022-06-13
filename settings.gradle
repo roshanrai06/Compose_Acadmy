@@ -17,3 +17,7 @@ include ':gallery'
 include ':settingspractice'
 include ':authenticationpractice'
 include ':homepractice'
+include ':graphs'
+
+
+
