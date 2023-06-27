@@ -21,13 +21,11 @@ import academy.compose.home.model.Destination
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -44,8 +42,10 @@ fun Home(
 ) {
     val navController = rememberNavController()
     val navBackStackEntry = navController.currentBackStackEntryAsState()
-    val currentDestination by derivedStateOf {
-        Destination.fromString(navBackStackEntry.value?.destination?.route)
+    val currentDestination by remember {
+        derivedStateOf {
+            Destination.fromString(navBackStackEntry.value?.destination?.route)
+        }
     }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState)
@@ -118,9 +118,9 @@ fun Home(
                 }
             }
         }
-    ) {
+    ) { padding ->
         Body(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().padding(padding),
             destination = currentDestination,
             navController = navController,
             onCreateItem = {

@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.PermissionStatus
 import com.google.accompanist.permissions.rememberPermissionState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,11 +34,17 @@ fun Gallery() {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var retrievedMedia by remember { mutableStateOf<List<Image>?>(null) }
-    val permissionState = rememberPermissionState(
-        Manifest.permission.READ_EXTERNAL_STORAGE
-    )
-    LaunchedEffect(key1 = permissionState.hasPermission) {
-        if (permissionState.hasPermission) {
+    val permissionState = if (
+        android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU
+    ) {
+        rememberPermissionState(Manifest.permission.READ_MEDIA_IMAGES)
+    } else {
+        rememberPermissionState(
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+    }
+    LaunchedEffect(key1 = permissionState.status) {
+        if (permissionState.status == PermissionStatus.Granted) {
             scope.launch(Dispatchers.IO) {
                 val retrieveMedia = retrieveMedia(context)
                 withContext(Dispatchers.Main) {

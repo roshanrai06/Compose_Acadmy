@@ -1,17 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="deploymentTargetDropDown">
-    <targetSelectedWithDropDown>
-      <Target>
-        <type value="QUICK_BOOT_TARGET" />
-        <deviceKey>
-          <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="$USER_HOME$/.android/avd/Pixel_5_API_S.avd" />
-          </Key>
-        </deviceKey>
-      </Target>
-    </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2021-12-23T21:37:52.640160Z" />
+    <value>
+      <entry key="authentication">
+        <State />
+      </entry>
+      <entry key="authenticationpractice">
+        <State />
+      </entry>
+      <entry key="blog">
+        <State />
+      </entry>
+      <entry key="calendar">
+        <State />
+      </entry>
+      <entry key="editor">
+        <State />
+      </entry>
+      <entry key="gallery">
+        <State />
+      </entry>
+      <entry key="graphs">
+        <State />
+      </entry>
+      <entry key="home">
+        <State />
+      </entry>
+      <entry key="homepractice">
+        <State />
+      </entry>
+      <entry key="inbox">
+        <State />
+      </entry>
+      <entry key="messaging">
+        <State />
+      </entry>
+      <entry key="music">
+        <State />
+      </entry>
+      <entry key="settings">
+        <State />
+      </entry>
+      <entry key="settingspractice">
+        <State />
+      </entry>
+      <entry key="video">
+        <State />
+      </entry>
+    </value>
   </component>
 </project>
