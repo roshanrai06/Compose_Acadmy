@@ -18,16 +18,13 @@ package academy.compose.calendar.ui
 import academy.compose.calendar.model.CalendarState
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.google.accompanist.pager.ExperimentalPagerApi
 import java.util.Calendar.getInstance
 
 @ExperimentalFoundationApi
-@ExperimentalPagerApi
 @Composable
 fun Calendar() {
     val state = remember { CalendarState(getInstance()) }
@@ -37,7 +34,7 @@ fun Calendar() {
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Preview(showBackground = true)
 @Composable
 fun Preview_Calendar() {

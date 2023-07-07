@@ -2,6 +2,21 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="Practical Jetpack Compose.Practical_Jetpack_Compose.authenticationpractice">
+        <State />
+      </entry>
+      <entry key="Practical Jetpack Compose.Practical_Jetpack_Compose.home">
+        <State />
+      </entry>
+      <entry key="Practical Jetpack Compose.Practical_Jetpack_Compose.homepractice">
+        <State />
+      </entry>
+      <entry key="Practical Jetpack Compose.Practical_Jetpack_Compose.music">
+        <State />
+      </entry>
+      <entry key="Practical Jetpack Compose.Practical_Jetpack_Compose.video">
+        <State />
+      </entry>
       <entry key="authentication">
         <State />
       </entry>

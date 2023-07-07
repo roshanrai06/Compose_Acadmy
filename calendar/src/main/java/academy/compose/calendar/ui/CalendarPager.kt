@@ -20,18 +20,16 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
 import java.util.*
 
 @ExperimentalFoundationApi
-@ExperimentalPagerApi
 @Composable
 fun CalendarPager(
     pagerState: PagerState,
@@ -47,7 +45,7 @@ fun CalendarPager(
                 .fillMaxSize()
                 .testTag(Tags.TAG_MONTH_PAGER),
             state = pagerState,
-            count = pageCount
+            pageCount = pageCount
         ) { index ->
             val currentDate = (dates.clone() as Calendar).apply {
                 add(Calendar.MONTH, index - startIndex)
@@ -57,7 +55,7 @@ fun CalendarPager(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Preview(showBackground = true)
 @Composable
 fun Preview_CalendarPager() {
