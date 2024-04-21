@@ -36,7 +36,7 @@ fun MonthCalendar(
 ) {
     Column(modifier = modifier) {
         val coroutineScope = rememberCoroutineScope()
-        val pagerState = rememberPagerState(initialPage = calendarState.startPosition)
+        val pagerState = rememberPagerState(pageCount = { calendarState.startPosition })
         Header(
             modifier = Modifier.fillMaxWidth(),
             title = calendarState.currentMonth,

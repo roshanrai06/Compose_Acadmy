@@ -16,13 +16,11 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.test.platform.app.InstrumentationRegistry
-import com.google.accompanist.pager.ExperimentalPagerApi
 import org.junit.Rule
 import org.junit.Test
 import java.util.*
 
 @ExperimentalFoundationApi
-@ExperimentalPagerApi
 class MonthlyTest {
 
     @get:Rule

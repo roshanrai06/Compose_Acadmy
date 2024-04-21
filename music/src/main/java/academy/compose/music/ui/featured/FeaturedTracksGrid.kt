@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:OptIn(ExperimentalLayoutApi::class)
+
 package academy.compose.music.ui.featured
 
 import academy.compose.music.ContentFactory
@@ -29,9 +31,6 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.flowlayout.FlowMainAxisAlignment
-import com.google.accompanist.flowlayout.FlowRow
-import com.google.accompanist.flowlayout.SizeMode
 
 @ExperimentalFoundationApi
 @Composable
@@ -45,8 +44,7 @@ fun FeaturedTracksGrid(
         FlowRow(
             modifier = modifier
                 .testTag(TAG_FEATURED_TRACKS),
-            mainAxisSize = SizeMode.Expand,
-            mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             tracks.forEach { track ->
                 FeaturedTrack(

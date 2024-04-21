@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -45,7 +46,7 @@ fun CalendarPager(
                 .fillMaxSize()
                 .testTag(Tags.TAG_MONTH_PAGER),
             state = pagerState,
-            pageCount = pageCount
+            //count = pageCount
         ) { index ->
             val currentDate = (dates.clone() as Calendar).apply {
                 add(Calendar.MONTH, index - startIndex)
@@ -59,8 +60,9 @@ fun CalendarPager(
 @Preview(showBackground = true)
 @Composable
 fun Preview_CalendarPager() {
+
     CalendarPager(
-        PagerState(1),
+        pagerState = rememberPagerState(pageCount = { 1 }), // Start on page 1
         1,
         Calendar.getInstance(),
         3
