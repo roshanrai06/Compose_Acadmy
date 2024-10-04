@@ -46,9 +46,9 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.LifecycleOwner
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
 
 @ExperimentalComposeUiApi
 @ExperimentalAnimationApi
@@ -63,7 +63,7 @@ fun VideoPlayer(
     val exoPlayer = remember {
         val media: MediaItem =
             MediaItem.fromUri("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
-        SimpleExoPlayer.Builder(context).build().apply {
+        ExoPlayer.Builder(context).build().apply {
             setMediaItem(media)
             addListener(object : Player.Listener {
                 override fun onPlaybackStateChanged(state: Int) {

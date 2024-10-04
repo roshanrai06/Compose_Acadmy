@@ -18,7 +18,12 @@ package academy.compose.graphs.ui.graph
 import academy.compose.graphs.GraphsDataFactory
 import academy.compose.graphs.Tags.TAG_CHART_BAR
 import academy.compose.graphs.model.GraphData
-import academy.compose.graphs.ui.*
+import academy.compose.graphs.ui.util.configureAnimation
+import academy.compose.graphs.ui.util.drawAxis
+import academy.compose.graphs.ui.util.labelTextPaint
+import academy.compose.graphs.ui.util.padding
+import academy.compose.graphs.ui.util.strokeThickness
+import academy.compose.graphs.ui.util.textPadding
 import android.graphics.Rect
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

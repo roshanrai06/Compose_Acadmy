@@ -17,7 +17,12 @@ package academy.compose.graphs.ui
 
 import academy.compose.graphs.model.GraphData
 import academy.compose.graphs.model.GraphType
+import academy.compose.graphs.ui.graph.AreaChart
 import academy.compose.graphs.ui.graph.BarChart
+import academy.compose.graphs.ui.graph.ColumnChart
+import academy.compose.graphs.ui.graph.DoughnutChart
+import academy.compose.graphs.ui.graph.LineChart
+import academy.compose.graphs.ui.graph.PieChart
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 

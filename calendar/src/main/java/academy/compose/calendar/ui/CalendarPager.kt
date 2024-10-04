@@ -35,8 +35,7 @@ import java.util.*
 fun CalendarPager(
     pagerState: PagerState,
     startIndex: Int,
-    dates: Calendar,
-    pageCount: Int
+    dates: Calendar
 ) {
     CompositionLocalProvider(
         LocalOverscrollConfiguration provides null
@@ -45,8 +44,7 @@ fun CalendarPager(
             modifier = Modifier
                 .fillMaxSize()
                 .testTag(Tags.TAG_MONTH_PAGER),
-            state = pagerState,
-            //count = pageCount
+            state = pagerState
         ) { index ->
             val currentDate = (dates.clone() as Calendar).apply {
                 add(Calendar.MONTH, index - startIndex)
@@ -60,11 +58,13 @@ fun CalendarPager(
 @Preview(showBackground = true)
 @Composable
 fun Preview_CalendarPager() {
-
+    val pagerState = rememberPagerState(initialPage = 0,
+        pageCount = {
+            1
+        })
     CalendarPager(
-        pagerState = rememberPagerState(pageCount = { 1 }), // Start on page 1
+        pagerState,
         1,
-        Calendar.getInstance(),
-        3
+        Calendar.getInstance()
     )
 }

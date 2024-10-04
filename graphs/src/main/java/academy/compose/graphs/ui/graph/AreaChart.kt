@@ -13,11 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package academy.compose.graphs.ui
+package academy.compose.graphs.ui.graph
 
 import academy.compose.graphs.GraphsDataFactory
 import academy.compose.graphs.Tags.TAG_CHART_AREA
 import academy.compose.graphs.model.GraphData
+import academy.compose.graphs.ui.util.configureAnimation
+import academy.compose.graphs.ui.util.drawAxis
+import academy.compose.graphs.ui.util.drawDataLabelsOnXAxis
+import academy.compose.graphs.ui.util.drawValueLabelsOnYAxis
+import academy.compose.graphs.ui.util.labelTextPaint
+import academy.compose.graphs.ui.util.padding
+import academy.compose.graphs.ui.util.strokeThickness
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package academy.compose.graphs.ui
+package academy.compose.graphs.ui.util
 
 import academy.compose.graphs.DisplayMetricsUtil.dpToPx
 import academy.compose.graphs.R

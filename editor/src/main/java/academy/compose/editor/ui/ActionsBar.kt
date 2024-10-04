@@ -28,6 +28,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Undo
 import androidx.compose.runtime.Composable
@@ -69,7 +70,7 @@ fun ActionsBar(
                         handleEvent(EditorEvent.Undo)
                     }) {
                         Icon(
-                            imageVector = Icons.Default.Undo,
+                            imageVector = Icons.AutoMirrored.Default.Undo,
                             contentDescription = stringResource(id = R.string.cd_undo),
                             tint = Color.White
                         )

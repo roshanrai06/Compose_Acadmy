@@ -20,6 +20,7 @@ import academy.compose.home.R
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -42,7 +43,7 @@ fun ChildDestinationTopBar(
                 onNavigateUp()
             }) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Default.ArrowBack,
                     contentDescription = stringResource(id = R.string.cd_navigate_up)
                 )
             }

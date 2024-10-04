@@ -144,7 +144,6 @@ fun StoryCreator(
                 modifier = Modifier.fillMaxSize(),
                 selectedTool = state.selectedTool,
                 configuration = state.brushConfiguration,
-                currentObject = state.currentDrawingPath,
                 handleEvent = handleEvent,
                 addText = { text, color ->
                     Rect().also { bounds ->

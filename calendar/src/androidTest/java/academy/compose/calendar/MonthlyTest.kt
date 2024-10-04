@@ -6,8 +6,6 @@ import academy.compose.calendar.Tags.TAG_HEADER
 import academy.compose.calendar.Tags.TAG_MONTH_HEADER
 import academy.compose.calendar.Tags.TAG_MONTH_PAGE
 import academy.compose.calendar.ui.MonthCalendar
-import android.os.SystemClock
-import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals

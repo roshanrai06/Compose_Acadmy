@@ -13,15 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package academy.compose.graphs.ui
+package academy.compose.graphs.ui.graph
 
 import academy.compose.graphs.GraphsDataFactory
-import academy.compose.graphs.R
 import academy.compose.graphs.Tags.TAG_CHART_DOUGHNUT
 import academy.compose.graphs.Tags.TAG_CHART_PIE
 import academy.compose.graphs.model.GraphData
+import academy.compose.graphs.ui.Legend
+import academy.compose.graphs.ui.util.configureAnimation
+import academy.compose.graphs.ui.util.labelTextPaint
 import android.graphics.Paint
-import android.graphics.Typeface
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme

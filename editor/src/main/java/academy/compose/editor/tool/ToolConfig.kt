@@ -28,7 +28,6 @@ fun ToolConfig(
     modifier: Modifier = Modifier,
     selectedTool: EditorTool?,
     configuration: BrushConfiguration,
-    currentObject: EditorObject?,
     handleEvent: (event: EditorEvent) -> Unit,
     addText: (test: String, color: Color) -> Unit
 ) {
@@ -43,7 +42,7 @@ fun ToolConfig(
                 handleEvent(EditorEvent.UpdateToolThickness(it))
             },
             onClose = {
-
+                handleEvent(EditorEvent.CloseEditor)
             }
         )
     } else if (selectedTool is EditorTool.Text) {
@@ -61,7 +60,6 @@ fun Preview_ToolConfigurationBrush() {
         modifier = Modifier.wrapContentSize(),
         selectedTool = EditorTool.Brush,
         configuration = BrushConfiguration(),
-        currentObject = null,
         handleEvent = {},
         addText = { text, color -> }
     )
@@ -74,7 +72,6 @@ fun Preview_ToolConfigurationText() {
         modifier = Modifier.wrapContentSize(),
         selectedTool = EditorTool.Text,
         configuration = BrushConfiguration(),
-        currentObject = null,
         handleEvent = {},
         addText = { text, color -> }
     )
